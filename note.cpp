@@ -3,26 +3,24 @@
  
         
 
-  Team Notebook	
+ Team Notebook	
 Contents:
 
-
-
-1.DP BITMASK………………………………………………………….2
-2.Số học…………………………………………………………………..2
-3.Matrix…………………………………………………………………..2
-4.Fenwick Tree…………………………………………………………3
-5.DSU………………………………………………………………………3
-6.Stack…………………………………………………………………….4
-7.Big Number…………………………………………………………..4
-8.Dijkstra…………………………………………………………………5
-9.Floyd…………………………………………………………………….5
-10.Hash…………………………………………………………………..6
-11.Một số bài quy hoạch động………………………………..6
+// 1.DP Bitmask
+// 2.Số học
+// 3.Matrix
+// 4.Fenwick Tree
+// 5.DSU
+// 6.Stack
+// 7.Big Number
+// 8.Dijkstra
+// 9.Floyd
+// 10.Hash
+// 11.Một số bài quy hoạch động
  
 
-
-DP BITMASK
+*************************************************************************************************************
+#DP BITMASK
 const int N=2000000;
 int n;
 int a[25][25];
@@ -66,17 +64,9 @@ void solve(){
     int ans =*min_element(dp[last]+1,dp[last]+n+1);
     cout<<ans<<endl;
 }
+**************************************************************************************************************
+#SỐ HỌC :
 
-
-
-
-
-
-
-
-
-
-SỐ HỌC :
 //Sang era
 vector<bool> a(1e6+5,1);
 v e;
@@ -88,14 +78,9 @@ void era(){
         }
     }
 }
-//tong uoc cua n
- 
+**************************************************************************************************************
+#FENWICK TREE:
 
-
-// dinhli Euler
- 
- 
- FENWICK TREE:
 const int N=1e5+5;
 int bit[N];
 void update(int i,int k){
@@ -106,9 +91,6 @@ int get(int i){
     for(;i;i-=i&-i)ans+=bit[i];
     return ans;
 }
-
- 
-
 //bo ba so thu tu nguoc
 //đếm số bộ ba a[i]>a[j]>ak] với i < j < k.
 int solve(int a[]){
@@ -131,9 +113,8 @@ int solve(int a[]){
     return res;
 }
   
-  
-
-STACK: 
+**************************************************************************************************************
+#STACK: 
 
 // trung to - hau to 
 int degree(char c){
@@ -172,12 +153,8 @@ string convert(string s){
     }
     return res;
 }
- 
-
-
-
-
-Dijkstra:
+*********************************************************************************************************
+#Dijkstra:
 int n,m,start;
 vector<ii> a[1005];
 int d[1005];
@@ -206,11 +183,8 @@ void dijkstra(int u){
     for(int i=1;i<=n;i++)cout<<d[i]<<" ";
     cout<<endl;
 }
- 
-
-
-
-Floyd:
+ *********************************************************************************************
+#Floyd:
 
 int a[105][105];
 int n,m,q;
@@ -225,9 +199,8 @@ void floyd(){
         }
     }
 }
- 
-
-Hash:
+*******************************************************************************************************
+#Hash:
 //Cho xâu A và xâu B chỉ gồm các chữ cái thường.Hãy tìm tất cả các vị trí mà A xuất hiện trong B.
 const int N=1000111;
 const int p=1000000003;
@@ -258,7 +231,8 @@ void solution(){
         if(hash_p==get_hash(i,i+n-1))cout<<i<<" ";
     }
 }
-	MATRIX:
+**********************************************************************************************************
+#MATRIX:
 const int p=1e9+7;
 struct matrix{
     int d[3][3];
@@ -287,16 +261,6 @@ const int p=1e9+7;
 struct matrix{
     int d[3][3];
 };
-//fibonanci
-
- 
-//luỵthuamatran
- 
-
-
-
-
-
 matrix luythua(matrix a,int k){
     if(k==1)return a;
     matrix a1=dv(a,k/2);
@@ -308,13 +272,8 @@ matrix luythua(matrix a,int k){
     }
     return ans;
 }
-//Tribonanci
- 
-  
-  
-  
-  
-DSU:
+**************************************************************************************************************
+#DSU:
 
 const int N=1e5+5;
 int parent[N] ,rank[N];
@@ -328,9 +287,6 @@ void Union(int x,int y){
     int p_y=find(y);
     if(p_x!=p_y)parent[p_x]=p_y;
 }
- 
-
-
 //Union vs rank
 void Union(int u,int v){
     u=find(u);
@@ -340,9 +296,8 @@ void Union(int u,int v){
     if(rank[u]>rank[v])parent[v]=u;
     else parent[u]=v;
 }
-  
- 
-Big Number:
+*************************************************************************************************************
+#Big Number:
 struct Big{
     int neg=0;
     vector<int> num;
@@ -493,8 +448,8 @@ struct Big{
     }
  
 };
-
-Một số bài quy hoạch động:
+***************************************************************************************************************
+#Một số bài quy hoạch động:
 //hinh vuong lon nhat
 int n,m;
 int a[n+1][m+1],dp[n+1][m+1];
